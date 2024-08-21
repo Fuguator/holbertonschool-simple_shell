@@ -10,5 +10,6 @@
 #include <errno.h>
 #include <dirent.h>
 char *trim(char *string);
-
+extern char **environ;
+void print_env(char *buffer);
 #endif
