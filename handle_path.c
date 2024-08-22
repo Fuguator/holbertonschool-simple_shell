@@ -10,14 +10,14 @@ int handle_path(char *buffer)
 	pid_t pid = fork();
 	char *argv[100];
 
-	divider(buffer, argv);
-                if (!argv[0])
-                {
-                        free(buffer);
-                        exit(EXIT_SUCCESS);
-                }
 	if (pid == 0)
 	{
+		divider(buffer, argv);
+		if (!argv[0])
+		{
+			free(buffer);
+			exit(EXIT_SUCCESS);
+		}
 		if (strcmp(argv[0], "env") == 0)
 			print_env(buffer);
 		if (strchr(argv[0], '/'))
