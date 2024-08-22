@@ -7,10 +7,9 @@
 int handle_path(char *buffer)
 {
 	int status = 0;
-	pid_t pid;
+	pid_t pid = fork();
 	char *argv[100];
 
-	pid = fork;
 	if (pid == 0)
 	{
 		divider(buffer, argv);
