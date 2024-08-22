@@ -13,7 +13,7 @@ int handle_path(char *buffer)
 	if (pid == 0)
 	{
 		divider(buffer, argv);
-		if (argv[0] == NULL)
+		if (!argv[0])
 		{
 			free(buffer);
 			exit(EXIT_SUCCESS);
@@ -27,7 +27,7 @@ int handle_path(char *buffer)
 		}
 		else
 			find_path(buffer, argv);
-		fprintf(stderr, "./hsh: 1: %s: NOT FOUND\n", argv[0]);
+		fprintf(stderr, "./hsh: 1: %s: not found\n", argv[0]);
 		free(buffer);
 		exit(127);
 	}
