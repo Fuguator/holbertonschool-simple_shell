@@ -11,6 +11,7 @@ char **divider(char *buffer, char **arr)
 	char *token;
 
 	token = strtok(buffer, " \n\t");
+
 	while (token && i < 99)
 	{
 		arr[i++] = token;
