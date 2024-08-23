@@ -1,0 +1,78 @@
+.\" Manpage for basicshell
+.\" Contact github for more information
+.TH basicshell 1 "December 2023" "Version 1.0" "BasicShell Manual"
+
+.SH NAME
+basicshell \- Simplified Command Line Conclusion
+
+.B /bin/[command] [option]
+.SH DESCRIPTION
+.LP
+.B hsh\fR is a simple UNIX command language interpreter capable of executing commands interactivly from \fBSTDIN\fR
+or piped from a file
+
+Invocation
+.P
+HSH can be used interactively or non-interactively. In non-interactive mode (when standard input is not connected to a terminal),
+it reads and executes commands provided to it. In interactive mode (when standard input is connected to a terminal),
+HSH displays the "$ " prompt to signal readiness for command input.
+Additionally, HSH can be invoked with command line arguments, treating the first argument as a file containing commands.
+Each command in the file is executed in sequence before the shell exits.
+
+Environment
+Upon startup, HSH copies the environment from its parent process, which consists of name-value pairs in the format NAME=VALUE.
+
+Command Execution
+.P
+When processing a command, HSH tokenizes it into words using space as a delimiter. The first word is treated as the command,
+and subsequent words are considered arguments. The shell follows these steps:
+1. If the command's first character is not a slash () or dot (.), HSH checks if it is a built-in command.
+If it is, the built-in command is executed.
+2. If the first character is not a slash (), dot (.), or a built-in command, HSH searches directories listed
+in the PATH environmental variable for an executable file with the given name.
+3. If the first character is a slash (), dot (.), or one of the above searches is successful, HSH executes the
+named program with any remaining arguments in a separate execution environment.
+
+Exit Status
+hsh returns the exit status of the last command executed, unless a syntax error occurs, with zero indicating success and non-zer
+indicatingfailure. All builtins return zero on success and one or two on incorrect usage (indicated by a corresponding error message).
+
+.TP
+.B Builtin commands
+
+.TP
+.BR env
+list all environment variables
+
+.TP
+.BR Exit
+exit the shell
+
+.SH EXAMPLES
+.B Interactive
+       $ ./hsh
+       #(づ￣ 3￣)づ->$ /bin/ls
+       hsh main.c shell.c
+       #(づ￣ 3￣)づ->$
+       #(づ￣ 3￣)づ->$ exit
+       $
+
+
+.B Non Interactive
+       $ echo "/bin/ls" | ./hsh
+       hsh main.c shell.c test_ls_2
+       $
+       $ cat test_ls_2 | ./hsh
+       hsh main.c shell.c test_ls_2
+       hsh main.c shell.c test_ls_2
+       $
+
+-----------------------------------------------------------------------
+.SH AUTHORS
+Abilhasan Samadov \fI<https://github.com/VoiceOfDarkness>\fR
+.P
+Magomed Abbasiv \fI <https://github.com/Somed-1>\fR
+.P
+
+.SH CONTRIBUTIONS
+The Basic Shell is open source, and tabs are encouraged. See the development guide for more information.
