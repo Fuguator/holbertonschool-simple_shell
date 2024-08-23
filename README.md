@@ -2,6 +2,8 @@
 
 **A simplified shell that offers a foundational command-line experience.**
 ![](https://tenor.com/search/courage-the-cowardly-dog-gifs)
+![computer-mash-doge](https://github.com/user-attachments/assets/8098f17f-1df5-411c-be5d-909075384afb)
+
 
 ## Key Functionalities
 
