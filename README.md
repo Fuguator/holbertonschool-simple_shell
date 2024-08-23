@@ -1,8 +1,7 @@
 # Basic Shell
 
 **A simplified shell that offers a foundational command-line experience.**
-
-https://tenor.com/search/courage-the-cowardly-dog-gifs
+![](https://tenor.com/search/courage-the-cowardly-dog-gifs)
 
 ## Key Functionalities
 
